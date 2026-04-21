@@ -10,28 +10,49 @@
         android:orientation="vertical"
         android:padding="48dp">
 
-        <EditText
-            android:id="@+id/edit_text_contact_name"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Contact Name" />
+            android:hint="Contact Name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_contact_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-        <EditText
-            android:id="@+id/edit_text_contact_number"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Contact Number" />
+            android:layout_height="wrap_content"
+            android:hint="Contact Number">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_contact_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-        <EditText
-            android:id="@+id/edit_text_contact_my_display_name"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Contact my Display Name" />
+            android:layout_height="wrap_content"
+            android:hint="Contact my Display Name">
+
+            <EditText
+                android:id="@+id/edit_text_contact_my_display_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <CheckBox
             android:id="@+id/check_box_junior"
@@ -54,12 +75,20 @@
             android:layout_marginTop="8dp"
             android:text="Immediate Start" />
 
-        <EditText
-            android:id="@+id/edit_text_start_date"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Available from Date" />
+            android:hint="Available from Date">
+
+            <EditText
+                android:id="@+id/edit_text_start_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/button_preview_mesage"

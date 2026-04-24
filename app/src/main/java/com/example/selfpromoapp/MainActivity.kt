@@ -51,10 +51,8 @@ class MainActivity : AppCompatActivity() {
         val immediateStart = immediateStartCheckBox?.isChecked ?: false
         val startDate = startDateEditText?.text?.toString() ?: ""
 
-        val juniorString = if (includeJunior) "Junior " else ""
-        val startString = if (immediateStart) "immediately" else "from $startDate"
+        val message = Message(contactName, contactNumber, myDisplayName, includeJunior, jobTitle, immediateStart, startDate)
 
-        val message = "Hi $contactName, I'm $myDisplayName. I'm interested in the ${juniorString}${jobTitle} position. I can start $startString. You can reach me at $contactNumber."
 
         val previewActivityIntent = Intent(this, PreviewActivity::class.java)
         previewActivityIntent.putExtra("Message", message)

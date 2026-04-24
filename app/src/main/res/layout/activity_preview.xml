@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="48dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#F2E9B1"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="6dp">
+
+        <TextView
+            android:id="@+id/text_view_message"
+            android:fontFamily="sans-serif-light"
+            android:layout_width="match_parent"
+            android:textSize="18sp"
+            android:textColor="#212121"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            tools:text="this is will be the msge for the new activity wejdn jeonof ujepjmd0wüsü" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Fixed: The button width was set to match_parent, which exceeded the recommended 320dp on large screens.
+         Changed layout_width to wrap_content and added maxWidth="320dp" with center horizontal gravity. -->
+    <Button
+        android:id="@+id/button_send_message"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+        android:layout_margin="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:maxWidth="320dp"
+        android:text="send message" />
+</LinearLayout>

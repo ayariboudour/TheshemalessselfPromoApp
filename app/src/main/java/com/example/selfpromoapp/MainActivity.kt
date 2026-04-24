@@ -1,16 +1,13 @@
 package com.example.selfpromoapp
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Spinner
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         immediateStartCheckBox = findViewById(R.id.check_box_immediate_start)
         jobTitleSpinner = findViewById(R.id.spinner_job_title)
 
+        val spinnerValue = arrayOf("Android Developer", "Android Engineer")
+        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,spinnerValue)
+        jobTitleSpinner?.adapter = spinnerAdapter
+
 
         val previewButton: Button = findViewById(R.id.button_preview_mesage)
         previewButton.setOnClickListener {
@@ -42,10 +43,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onPreviewClicked() {
-        val testString = contactNameEditText!!.text.toString()+ ", "+ contactNumberEditText!!.text.toString()
-        Log.e("MainActivity", "Preview button clicked: $testString")
-        Toast.makeText(this, testString, Toast.LENGTH_LONG).show()
+        val contactName = contactNameEditText?.text?.toString() ?: ""
+        val contactNumber = contactNumberEditText?.text?.toString() ?: ""
+        val myDisplayName = myDisplayNameEditText?.text?.toString() ?: ""
+        val includeJunior = includeJuniorCheckBox?.isChecked ?: false
+        val jobTitle = jobTitleSpinner?.selectedItem?.toString() ?: ""
+        val immediateStart = immediateStartCheckBox?.isChecked ?: false
+        val startDate = startDateEditText?.text?.toString() ?: ""
 
+        val juniorString = if (includeJunior) "Junior " else ""
+        val startString = if (immediateStart) "immediately" else "from $startDate"
+
+        val message = "Hi $contactName, I'm $myDisplayName. I'm interested in the ${juniorString}${jobTitle} position. I can start $startString. You can reach me at $contactNumber."
+
+        val previewActivityIntent = Intent(this, PreviewActivity::class.java)
+        previewActivityIntent.putExtra("Message", message)
+        startActivity(previewActivityIntent)
     }
-
 }
